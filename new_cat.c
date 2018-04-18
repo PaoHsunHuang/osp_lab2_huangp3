@@ -21,29 +21,20 @@ int main(int argc, char *argv[]){
 		}else{
 		printf("Can't not find direction");
 		}
-	fclose(inputFile);
-	}
-	else{
+		fclose(inputFile);
+	//if user didn't input any parameter
+	//repeat what user input until press CTRL+D
+	}else{
 	char ch = 0;
 	char *inputString = NULL;
 	int x = 0;
-	while(ch != EOF)
-	{
+	while(ch != EOF){
 	ch = getchar();
-	if(ch != EOF){
-	printf("%c", ch);
-	}
-	}
+		if(ch != EOF){
+		printf("%c", ch);
+		}
+		}
 
-
-
-
-	//int i = argc;
-	//printf("input: %d data\n",argc);
-
-	//for(int k = 0; k < argc; ++k){
-	//printf("data %d = %s\n",k ,argv[k]);
-	//}
 	}
 	return 0;
 }
