@@ -11,8 +11,10 @@ int main(int argc, char *argv[]){
 	fflush(stdout);
 
 	}
-
-	printf("\n");
+	//print a line
+	//for no parameter line feed
+	//and the space after print all parameter
+ 	printf("\n");
 
 	return 0;
 }
