@@ -10,16 +10,18 @@ int main(int argc, char *argv[]){
 	size_t lineSize= 256;
 
 	inputFile = fopen(argv[1],"r");
-	//if can open file run though whole file and print it
+	//try to open argv[1]
+	//if can open 
+	//run though whole file and print it
 	//or print out warning if can't find file
 		if(inputFile != NULL){
 
-		while(getline(&inputText,&lineSize,
+			while(getline(&inputText,&lineSize,
 			inputFile) != -1){
-		printf("%s", inputText);
-		}
+			printf("%s", inputText);
+			}
 		}else{
-		printf("Can't not find direction");
+			printf("Can't not find direction");
 		}
 		fclose(inputFile);
 	//if user didn't input any parameter
@@ -28,11 +30,11 @@ int main(int argc, char *argv[]){
 	char ch = 0;
 	char *inputString = NULL;
 	int x = 0;
-	while(ch != EOF){
-	ch = getchar();
-		if(ch != EOF){
-		printf("%c", ch);
-		}
+		while(ch != EOF){
+			ch = getchar();
+			if(ch != EOF){
+				printf("%c", ch);
+			}
 		}
 
 	}
