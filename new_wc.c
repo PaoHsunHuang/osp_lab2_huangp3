@@ -4,8 +4,6 @@
 #include<ctype.h>
 int main(int argc, char *argv[]){
 
-	//user input parameter
-	//nned to check is it file or flag -n
 	int flagCheck = 0;//0 = all, 1 = -l, 2 = -c
 	int fileCheck = 0;//0 = no file, 1 = have file
 	int line = 0;
@@ -93,7 +91,9 @@ int main(int argc, char *argv[]){
 		line++;
 		word++;
 		}
-
+		//if ch is space and last character is not space
+		//word count ++, if ch is not space, set spacecheck
+		//back to 0, so ready to check another space.
 		if(ch == ' '){
 			if(spaceCheck == 0){
 			word++;
@@ -113,7 +113,9 @@ int main(int argc, char *argv[]){
 		line++;
 		word++;
 		}
-
+		//if ch is space and last character is not space
+		//word count ++, if ch is not space, set spacecheck
+		//back to 0, so ready to check another space.
 		if(ch == ' '){
 			if(spaceCheck == 0){
 			word++;
