@@ -94,11 +94,9 @@ int main(int argc, char *argv[]){
 		return 0;
 		}
 	}
-	//initial the array use for output
-	//set everyone into NULL pointer
+	//set varaible for save string
 	char saveString[lineNum][lineSize];
 	char *inputText;
-	char *temp;
 	char ch;
 	//if there is a file use file,
 	//if no use the input that user type in
@@ -123,16 +121,11 @@ int main(int argc, char *argv[]){
 		strcpy(saveString[i],saveString[i-1]);
 		}
 		strcpy(saveString[0],inputText);
-
 		}
-
 	}
-
 	//print out the string
 	for(int i = 0; i < lineNum; i++){
-
 		printf("%s",saveString + i);
-
 	}
 	return 0;
 }
