@@ -1,4 +1,3 @@
-#define _GUN_SOURCE
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -97,51 +96,43 @@ int main(int argc, char *argv[]){
 	}
 	//initial the array use for output
 	//set everyone into NULL pointer
-	char *saveString[lineNum];
+	char saveString[lineNum][lineSize];
 	char *inputText;
-	char ch = 0;
-	for(int i = 0; i < lineNum; i++){
-	saveString[i]= "";
-	}
-
-
+	char *temp;
+	char ch;
 	//if there is a file use file,
 	//if no use the input that user type in
-	if(inputFile){
-	printf("original document:\n");
-	while(getline(&inputText, &lineSize, inputFile) != -1){
-	printf("%s",inputText);
-		//start from the one element before last one,
-		//since last one will be delet anyway
-		for(int i = lineNum; i > 0; i--){
-		saveString[i+1] = saveString[i];
+	if(inputFile != NULL){
+		while((ch = getline(&inputText,
+			&lineSize, inputFile))!= -1){
+//		start from the last element,
+//		since last one will be delet anyway
+		for(int i = (lineNum - 1); i != 0; i--){
+		strcpy(saveString[i],saveString[i-1]);
 		}
-		saveString[0] = inputText;
+		strcpy(saveString[0],inputText);
 	}
+
 	fclose(inputFile);
 	}else{
-//		while(ch != EOF){
-//		ch = getchar();
-
+		while((ch  = getchar())!= EOF){
+		ungetc(ch,stdin);
 		getline(&inputText,&lineSize,stdin);
-		for(int i = lineNum; i > 0; i--){
-		saveString[i+1] = saveString[i];
+
+		for(int i = (lineNum - 1); i !=  0; i = i - 1){
+		strcpy(saveString[i],saveString[i-1]);
 		}
-		saveString[0] = inputText;
+		strcpy(saveString[0],inputText);
 
-//		}
+		}
+
 	}
-
-
-
-
 
 	//print out the string
 	for(int i = 0; i < lineNum; i++){
 
-		if(saveString[i] != '\0'){
-		printf("saveString[%d]:%s\n",i,saveString[i]);
-		}
+		printf("%s",saveString + i);
+
 	}
 	return 0;
 }
